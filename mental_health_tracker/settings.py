@@ -1,3 +1,5 @@
+import os
+
 """
 Django settings for mental_health_tracker project.
 
@@ -23,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9&ftz5x5j((u&n_8wev0ze4f1!)&r^xwn$w&ib&!(k#tg3o*7_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+PRODUCTION = os.getenv("PRODUCTION", False)
+DEBUG = not PRODUCTION
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "pradipta-wachyu-mentalhealthtracker.pbp.cs.ui.ac.id"]
 
@@ -122,4 +125,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://pradipta-wachyu-mentalhealthtracker.pbp.cs.ui.ac.id/",]
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","https://pradipta.wachyu:lbhEhKvxh7lfWDSK0b7NytF6IYjmaU2d@pbp.cs.ui.ac.id/pradipta.wachyu/mentalhealthtracker","http://pradipta-wachyu-mentalhealthtracker.pbp.cs.ui.ac.id/",]
